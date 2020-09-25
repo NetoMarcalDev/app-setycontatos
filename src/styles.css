@@ -1,0 +1,39 @@
+.margin-top {
+  margin-top: 5px;
+}
+.margin-right {
+  margin-right: 5px;
+}
+.margin-bottom {
+  margin-bottom: 5px;
+}
+.margin-left {
+  margin-left: 5px;
+}
+.color-title-table {
+  color:  #696969
+}
+.color-red {
+  color: red;
+}
+.color-green {
+  color: green;
+}
+.color-blue {
+  color: #4682B4;
+}
+.margin-full {
+  margin: 5px;
+}
+.text-color-red {
+  color: red;
+}
+.float-right {
+  float: right;
+}
+.size-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+  background-size: 100% 100%;
+}
