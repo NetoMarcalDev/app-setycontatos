@@ -8,6 +8,11 @@ export const url = 'https://api-setycontatos.herokuapp.com';
     return response;
   }
   
+  export const getContactLisShow = async () => { 
+    const response = await axios.get(`${url}/contatos/lista/`)
+    return response;
+  }
+
   export const postContact = async (contact) => {
     const response = await axios.post(`${url}/contatos/`, contact)
     return response;

@@ -12,6 +12,7 @@ const Home = () => {
       <div className="py-4">
         <div className="row">
           <div className="col-md-6">
+          <h3>Consultar Contatos </h3><hr/>
             <SearchProvider>
               <TextAttentionNumberNine  />
               <ContactSearch />             

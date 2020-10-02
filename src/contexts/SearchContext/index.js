@@ -3,7 +3,7 @@ import { maskTelefone, noMaskTelefone } from '../../components/masks';
 import { testValidPhone } from '../../components/Utilities';
 import { 
   getContacts, deleteContacts, getGroups2, 
-  getTypePhone2, updateContact, petchPhone 
+  getTypePhone2, updateContact, petchPhone, 
 } from '../../api/setyContacts';
 
 
@@ -46,7 +46,22 @@ export default function SearchProvider({ children }) {
   const [modalEdit, setModalEdit] = useState(() => modalEditDefault);
   const toggleEdit = () => setModalEdit(!modalEdit);
 
-  // ----------------------------------
+  
+  //MyNodal ----------------------------------
+
+
+  const modalAddPhoneDefault = {
+    isOpen: false,
+    className: '',
+    title: '',
+    text: '',
+    actionText1: '',
+    actionText2: '',
+  };
+
+  const [modalAddPhone, setModalAddPhone] = useState(() => modalAddPhoneDefault);
+  const toggleAddPhone = () => setModalAddPhone(!modalAddPhone);
+
 
   const [contactTyped, setContactTyped] = useState(() => {
     
@@ -183,6 +198,19 @@ export default function SearchProvider({ children }) {
         } 
       })
     }    
+  }
+
+  const handleAddPhone = () => {
+
+    setModalAddPhone({
+      ...modalEdit,
+      isOpen: true,
+      className: '',
+      title: 'Atenção!',
+      text: `Olá!`,
+      actionText1: 'Editar',
+      actionText2: 'Cancelar'
+    });
   }
 
   const handleEdit = () => {
@@ -423,7 +451,10 @@ export default function SearchProvider({ children }) {
         setContactEdit,
         hendleInputChangeNumberEdit,
         hendleInputChangeNameEdit,
-        hendleInputChangeObsEdit
+        hendleInputChangeObsEdit,
+        handleAddPhone,
+        modalAddPhone,
+        toggleAddPhone
       }}
      >
        { children }
@@ -459,7 +490,10 @@ export function useSearch() {
     setContactEdit,
     hendleInputChangeNumberEdit,
     hendleInputChangeNameEdit,
-    hendleInputChangeObsEdit
+    hendleInputChangeObsEdit,
+    handleAddPhone,
+    modalAddPhone,
+    toggleAddPhone
   } = context;
 
   return {
@@ -484,7 +518,10 @@ export function useSearch() {
     setContactEdit,
     hendleInputChangeNumberEdit,
     hendleInputChangeNameEdit,
-    hendleInputChangeObsEdit
+    hendleInputChangeObsEdit,
+    handleAddPhone,
+    modalAddPhone,
+    toggleAddPhone
   }
 
 }

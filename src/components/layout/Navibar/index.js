@@ -29,7 +29,7 @@ const Menu = () => {
             </div>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" exact to="/about">Sobre</NavLink>
+            <NavLink className="nav-link" exact to="/listar">Listar</NavLink>
           </li>
         </ul>
       </div>

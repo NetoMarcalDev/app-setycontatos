@@ -1,4 +1,5 @@
 import React from 'react';
+import { Badge } from 'reactstrap';
 import { 
   AiFillPhone, AiOutlinePaperClip, 
   AiOutlineEdit, AiOutlineClose 
@@ -15,6 +16,7 @@ import {
 import { useSearch } from '../../contexts/SearchContext';
 import MyModal from '../MyModal';
 import ContactEdit from '../ContactEdit';
+import PhoneAdd from '../PhoneAdd';
 
 
 export default function ContactCard () {
@@ -37,7 +39,10 @@ export default function ContactCard () {
     hendleInputChange,
     hendleInputChangeNumberEdit,
     hendleInputChangeNameEdit,
-    hendleInputChangeObsEdit
+    hendleInputChangeObsEdit,
+    handleAddPhone,
+    modalAddPhone,
+    toggleAddPhone
    } = useSearch();
 
   return(
@@ -53,7 +58,7 @@ export default function ContactCard () {
           </div>  
         </CardHeader>
         <CardBody>
-          <CardText><span className="text-muted"><AiFillPhone /> Número:</span> { contact.numero } </CardText>
+          <CardText><span className="text-muted"><AiFillPhone /> Número: </span> { contact.numero} {/* contact.numero &&  <>| <Badge  href="#" color="light" onClick={ () => / handleAddPhone() } >ADD NOVO +< AiFillPhone /></Badge></> */}</CardText>
           <CardText><span className="text-muted"><AiOutlinePaperClip /> Tipo:</span> { contact.descricao }</CardText>
           <CardText><span className="text-muted"><GrObjectUngroup /> Grupo:</span> { contact.grupo } { contact.grupo ? <FaHandPointLeft  /> : '' } </CardText>
           <CardText><span className="text-muted"><BsReverseLayoutTextSidebarReverse /> Obs:</span> { contact.observacao }</CardText>
@@ -77,6 +82,10 @@ export default function ContactCard () {
         hendleInputChangeNumberEdit={hendleInputChangeNumberEdit}
         hendleInputChangeNameEdit={hendleInputChangeNameEdit}
         hendleInputChangeObsEdit={hendleInputChangeObsEdit}
+      />
+      <PhoneAdd 
+        modal={modalAddPhone}
+        toggle={toggleAddPhone}
       />
     </>
   );
